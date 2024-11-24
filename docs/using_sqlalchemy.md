@@ -15,7 +15,7 @@ SQLAlchemy allows queries to be written in plain old SQL. This will be most fami
 ```python
 from sqlalchemy import create_engine, text
 
-engine = create_engine(url="postgresql://scott:pilgrim@localhost/test")
+engine = create_engine(url)
 
 with engine.connect() as connection:
     query = text(
@@ -23,7 +23,7 @@ with engine.connect() as connection:
         SELECT DISTINCT ON (sensor_id)
             sr.sensor_id, sr.reading_value AS value
         FROM sensors.sensor_reading AS sr
-        WHERE sr.sensor_id = ANY(%(sensor_ids)s)
+        WHERE sr.sensor_id = ANY(:sensor_ids)
         ORDER BY sr.sensor_id, sr.timestamp DESC
         """
     )
@@ -48,7 +48,7 @@ from sqlalchemy import create_engine, select
 
 from db_model import SensorReading
 
-engine = create_engine(url="postgresql://scott:pilgrim@localhost/test")
+engine = create_engine(url)
 
 with engine.connect() as connection:
     sr = SensorReading
@@ -67,7 +67,7 @@ What is `SensorReading` in the above example? I don't know — what was the `sen
 ```python
 import datetime as dt
 
-from sqlalchemy import Text
+from sqlalchemy import Numeric, Text
 from sqlalchemy.dialects.postgresql import TIMESTAMP
 from sqlalchemy.orm import DeclarativeBase, Mapped, MappedAsDataclass, mapped_column
 
@@ -87,13 +87,11 @@ class SensorReading(SensorsBase):
     reading_value: Mapped[float] = mapped_column(Numeric, nullable=False)
 ```
 
+<!-- Can use tables or ORM objects. -->
 
-
-Can use tables or ORM objects.
-
-making some sql syntax clearer, eg desc
-learning 1 lang
+<!-- making some sql syntax clearer, eg desc -->
+<!-- learning 1 lang -->
 
 ## ORM
 
-abstracts away
+<!-- abstracts away -->

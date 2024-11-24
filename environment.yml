@@ -5,6 +5,8 @@ dependencies:
   - pip:
       - mkdocs
       - mkdocs-material
+      - pandas
+      - psycopg2-binary
       - pytest-postgresql
       - pytest
       - sqlacodegen-v2
