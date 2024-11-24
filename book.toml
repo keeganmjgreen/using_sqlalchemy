@@ -1,0 +1,6 @@
+[book]
+authors = ["Keegan Green"]
+language = "en"
+multilingual = false
+src = "docs"
+title = "Using SQLAlchemy"

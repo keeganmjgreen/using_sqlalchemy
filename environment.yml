@@ -1,0 +1,11 @@
+name: using_sqlalchemy
+dependencies:
+  - pip
+  - python
+  - pip:
+      - mkdocs
+      - mkdocs-material
+      - pytest-postgresql
+      - pytest
+      - sqlacodegen-v2
+      - sqlalchemy
